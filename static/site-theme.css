@@ -1,0 +1,721 @@
+/*
+   Лиминальная Тема
+   [2020 Wikidot Тема]
+   оригинальный код от Линча и Этоиле
+   доработка и обновление от Айзека и МХ'а
+*/
+
+@import url("fsm.css");
+@import url("normalize-archived.css");
+@import url("bhl-archived.css");
+@import url("sidebar.css");
+@import url("user-menu.css");
+@import url("forum.css");
+@import url("rate-module.css");
+
+:root {
+    --theme-base: "black-highlighter";
+    --theme-id: "liminal";
+    --theme-name: "Liminal Theme";
+
+    --logo-image: url("/local--files/system:themes/logo.svg");
+    --header-title: "Закулисье";
+    --header-subtitle: "Вы бывали здесь раньше.";
+
+    --body-font: Arial, sans-serif;
+    --header-font: 'Fantasque Sans Mono', monospace;
+    --title-font: 'Fantasque Sans Mono', monospace;
+    --mono-font: 'Fantasque Sans Mono', monospace;
+
+    --white-monochrome: 237, 233, 223;
+    --pale-gray-monochrome: 255, 251, 240;
+    --light-gray-monochrome: 160, 160, 160;
+    --dark-gray-monochrome: 64, 63, 52;
+    --gray-monochrome: 72, 69, 60;
+    --black-monochrome: 25, 20, 16;
+    --bright-accent: 140, 136, 126;
+    --medium-accent: 72, 69, 60;
+    --dark-accent: 140, 136, 126;
+    --pale-accent: 140, 136, 126;
+
+    --swatch-topmenu-border-color: var(--medium-accent);
+
+    --link-color: 230, 23, 68;
+    --hover-link-color: 230, 23, 68;
+
+    --background-gradient-distance: 0rem;
+
+    --gradient-header: linear-gradient(to top,
+            rgba(var(--medium-accent)) 0%,
+            rgba(var(--medium-accent), 0.90) 100%);
+    --diagonal-stripes: linear-gradient(transparent 0);
+
+    --header-h2-font-size: calc(var(--base-font-size)*1.35);
+    --header-height-on-desktop: 10rem;
+    --header-height-on-mobile: 10rem;
+    --sidebar-width-on-desktop: 20rem;
+}
+
+body#html-body {
+    overflow-x: hidden;
+}
+
+div.wd-adunit {
+    display: none !important;
+}
+
+#skrollr-body {
+    background-image:
+        radial-gradient(circle, rgb(var(--medium-accent)) 50%, transparent 0);
+    background-repeat: repeat;
+    background-size: 0.25em 0.25em;
+    width: 100%;
+    height: 10rem;
+}
+
+#header h1 a {
+    line-height: 0.6;
+    width: fit-content !important;
+    min-width: 10rem;
+    min-height: 2rem;
+}
+
+#side-bar .side-block.img-links div a img {
+    filter: none;
+    transition: 0.2s;
+}
+
+#side-bar .side-block.img-links div a:hover img {
+    transform: scale(1.1);
+}
+
+#side-bar .heading p {
+    font-family: var(--title-font);
+    font-size: 1.25rem;
+    text-shadow: none;
+}
+
+#side-bar .heading {
+    padding: 0;
+    min-height: 1.65rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 769px) {
+    #side-bar {
+        padding-left: 0.75rem;
+        top: 0;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    #side-bar .img-links {
+        padding: 10px 0;
+    }
+}
+
+div#page-options-bottom-2>a,
+div#page-options-bottom>a {
+    border-radius: 0em;
+    -moz-border-radius: 0em;
+    border: none;
+}
+
+div#page-options-bottom-2>a:active,
+div#page-options-bottom-2>a:hover,
+div#page-options-bottom>a:active,
+div#page-options-bottom>a:hover {
+    border: none;
+}
+
+#header,
+#top-bar {
+    background-attachment: scroll;
+}
+
+#header {
+    background-image: none;
+}
+
+#header::before {
+    content: "";
+    position: absolute;
+    height: 95%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-image: var(--logo-image);
+    background-size: auto 18rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+
+#header h1,
+#header h1 a {
+    position: absolute;
+    top: 1rem;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+
+#header h2,
+#header h2 span,
+#header h2 span::before {
+    position: absolute;
+    top: 2rem;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#header h1 a>span {
+    pointer-events: none;
+}
+
+#header h1 a::before,
+#header h2 span::before {
+    text-shadow: .063rem 0.1rem 0.1rem #0c0c0c;
+    transition: transform .2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#header h1 a:hover:before {
+    transform: translateY(-3px);
+}
+
+a.newpage {
+    background: transparent;
+    text-decoration: none
+}
+
+a.newpage {
+    color: rgb(var(--newpage-color))
+}
+
+a {
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+}
+
+#page-title,
+.meta-title {
+    border-color: rgb(var(--swatch-tertiary-color));
+}
+
+hr {
+    border: none;
+    background-color: rgb(var(--swatch-tertiary-color));
+}
+
+div.block-center {
+    min-width: 30%
+}
+
+@media only screen and (max-width:768px) {
+    div.block-center {
+        min-width: 40%
+    }
+}
+
+blockquote {
+    box-shadow: 0.05rem 0.1rem 0.3rem rgba(0, 0, 0, .25);
+}
+
+.styled-quote {
+    background-color: rgb(var(--pale-gray-monochrome));
+    border-left: 0.5rem solid rgba(var(--gray-monochrome));
+    padding: 0.1rem 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+    box-shadow: 0.05rem 0.1rem 0.3rem rgba(0, 0, 0, .25);
+}
+
+.dark-styled-quote {
+    background-color: rgb(var(--gray-monochrome));
+    border-left: 0.5rem solid rgba(var(--pale-gray-monochrome));
+    color: rgb(var(--white-monochrome));
+    padding: 0.1rem 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+    box-shadow: 0.05rem 0.1rem 0.3rem rgba(0, 0, 0, .25);
+}
+
+.dark-styled-quote a {
+    color: rgb(var(--swatch-menubg-medium-color));
+}
+
+.lightblock {
+    background-color: rgb(var(--pale-gray-monochrome));
+    padding: 0.01rem 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, .25);
+}
+
+.darkblock {
+    background-color: rgb(var(--gray-monochrome));
+    color: rgb(var(--white-monochrome));
+    padding: 0.01rem 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, .25);
+}
+
+.darkblock a {
+    color: rgb(var(--swatch-menubg-medium-color));
+}
+
+.interwiki1_title {
+
+    color: rgb(80, 77, 66);
+    border-bottom: solid 1px rgb(80, 77, 66);
+    padding-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 8pt;
+    font-weight: bold;
+
+}
+
+.interwiki1_entry {
+
+    position: relative;
+    margin: 2px 0;
+
+}
+
+.interwiki1_entry p::before {
+
+    content: "¦";
+    font-size: 9px;
+    color: rgb(80, 77, 66);
+    position: relative;
+    margin: 0 7px 0 5px;
+    bottom: 3px;
+
+}
+
+.interwiki1_entry a,
+.interwiki1_entry a:visited {
+
+    font-weight: bold;
+    color: #b01;
+    text-decoration: none;
+    background: transparent;
+
+}
+
+.interwiki1_entry a:hover {
+
+    background-color: transparent;
+    text-decoration: underline;
+
+}
+
+div.scpnet-interwiki-wrapper {
+    margin: 0;
+    width: auto;
+}
+
+iframe.scpnet-interwiki-frame {
+    border: inherit;
+    width: 100%;
+    height: 230px;
+}
+
+@media (min-width:768px) {
+
+    div.scpnet-interwiki-wrapper,
+    iframe.scpnet-interwiki-frame {
+        width: 100%;
+    }
+}
+
+#toc {
+    background-color: rgb(var(--pale-gray-monochrome));
+    border: none;
+    border-left: 0.5rem solid rgba(var(--gray-monochrome));
+    border-right: 0.5rem solid rgba(var(--gray-monochrome));
+    margin: 0.5rem 0 0.5rem 0;
+    padding: 0;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, .25);
+    border-spacing: 0;
+}
+
+#toc.floatright {
+    margin: 0.5rem 0 0.5rem 0.5rem;
+}
+
+#toc.floatleft {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+#toc .toc-action-bar {
+    padding: 0 4px;
+}
+
+#toc .title {
+    font-family: var(--mono-font);
+    margin: 0;
+    padding: 0.3em 2em;
+    background-color: rgb(var(--gray-monochrome));
+    color: rgb(var(--white-monochrome));
+}
+
+#toc-list {
+    margin: 0.5em 0;
+}
+
+#toc-list a {
+    transition: 0.3s, text-decoration-color 0s;
+    padding: 0px 4px;
+}
+
+#toc-list a:hover {
+    background: rgb(var(--pale-accent));
+    color: rgb(var(--pale-gray-monochrome));
+    text-decoration: none;
+}
+
+.owindow {
+    border: 0;
+    border-top: 5px solid rgb(var(--medium-accent));
+    border-bottom: 5px solid rgb(var(--medium-accent));
+    outline: 5px solid rgb(var(--bright-accent));
+    border-radius: 10px;
+}
+
+.owindow .button-bar {
+    margin: 0 0.5em 0.5rem 0.5rem;
+}
+
+.owindow .button-bar a {
+    flex-grow: 0;
+}
+
+span.printuser {
+    color: inherit;
+    transition: background-color .2s ease, color 0.3s ease;
+}
+
+span.printuser a {
+    transition: 0.3s ease, text-decoration-color 0s;
+}
+
+span.printuser:hover>a {
+    text-decoration: none;
+    color: rgb(var(--pale-gray-monochrome));
+}
+
+span.printuser a:first-of-type:not(:last-of-type) {
+    align-self: center;
+}
+
+span.printuser img.small {
+    transition: 0.5s;
+    padding: 0 2px 0 8px;
+}
+
+span.printuser.deleted img.small {
+    display: none;
+}
+
+#login-status a {
+    align-self: center;
+}
+
+#avatar-hover-container {
+    display: none;
+}
+
+#search-top-box-input,
+#search-top-box-input:focus,
+#search-top-box-input:hover {
+    padding: 5px 10px !important;
+    font-size: 100%;
+    background-color: rgba(var(--pale-accent), 0.3);
+    border: 0 !important;
+    border-radius: 11px 0 0 11px !important;
+    max-width: calc(var(--base-font-size)*.93333*12.4);
+}
+
+#search-top-box-input::placeholder {
+    color: rgb(var(--swatch-text-light)) !important;
+}
+
+#search-top-box-form input[type='submit'] {
+    padding: 5px 10px;
+    font-size: 100%;
+    background-color: rgb(var(--medium-accent));
+    border: 2.5px solid rgb(var(--pale-accent));
+    border-radius: 0 5px 5px 0;
+}
+
+#search-top-box {
+    right: -25px;
+    top: 50px;
+}
+
+#search-top-box-form input[type='submit']:hover,
+#search-top-box-form input[type='submit']:focus {
+    text-decoration: none;
+    text-shadow: none;
+    background-color: rgb(var(--pale-accent));
+    color: rgb(var(--pale-gray-monochrome));
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 100%;
+    border: 2.5px solid rgb(var(--pale-accent));
+    border-radius: 0 5px 5px 0;
+}
+
+@media only screen and (max-width: 768px) {
+    #login-status {
+        right: 6px;
+        padding: 1px 8px;
+        font-size: 80%;
+    }
+
+    #header::before {
+        top: 11px;
+    }
+
+    #header h1,
+    #header h1 a {
+        top: 17px;
+        font-size: 150%;
+    }
+
+    #header h2,
+    #header h2 span,
+    #header h2 span::before {
+        top: 31px;
+    }
+
+    #search-top-box-form input[type='submit'] {
+        padding: 1px 8px;
+        font-size: 80%;
+        border-radius: 11px 5px 5px 11px;
+    }
+
+    #search-top-box {
+        right: 6px;
+        top: 40px;
+    }
+
+    #search-top-box-form input[type='submit']:hover,
+    #search-top-box-form input[type='submit']:focus {
+        padding: 1px 8px;
+        font-size: 80%;
+        border-radius: 11px 5px 5px 11px;
+    }
+
+    #toc {
+        display: contents;
+    }
+
+    #toc #toc-action-bar {
+        margin: 0.5rem 0 0 0;
+        padding: 2px 4px;
+        background-color: rgb(var(--pale-gray-monochrome));
+        border-left: 0.5rem solid rgba(var(--gray-monochrome));
+        border-right: 0.5rem solid rgba(var(--gray-monochrome));
+        box-shadow: 0 0.3rem 0.3rem rgb(0 0 0 / 25%);
+    }
+
+    #toc .title {
+        margin: 0 0 0.5rem 0;
+        padding: 0.5rem 2em 0.5rem 2em;
+        background-color: rgb(var(--gray-monochrome));
+        box-shadow: 0 0.3rem 0.3rem rgb(0 0 0 / 25%);
+    }
+
+    #toc-list {
+        margin: 0.5rem 0 0.5rem 0;
+        padding: 0.5rem 1em 0.5rem 0;
+        background-color: rgb(var(--pale-gray-monochrome));
+        border-left: 0.5rem solid rgba(var(--gray-monochrome));
+        border-right: 0.5rem solid rgba(var(--gray-monochrome));
+        box-shadow: 0 0.3rem 0.3rem rgb(0 0 0 / 25%);
+    }
+}
+
+#footer {
+    height: auto;
+    color: rgba(var(--swatch-secondary-color), .7);
+    font-size: 80%;
+    justify-content: center;
+    margin: 0;
+    padding: 0.2875rem 0.5em;
+}
+
+#footer>a {
+    margin: 0;
+    padding-left: 0.5em;
+}
+
+#license-area {
+    --link-color: var(--swatch-primary-darkest);
+    --visited-link-color: var(--swatch-primary-darkest);
+    --hover-link-color: var(--swatch-primary-darkest);
+    padding: 0.55em;
+    margin: 0;
+    width: auto;
+    background-color: rgb(var(--swatch-menubg-medium-dark-color));
+    color: rgb(var(--swatch-text-secondary-color));
+    z-index: 11;
+}
+
+@media only screen and (max-width: 768px) {
+    @supports (display:grid) {
+        #footer {
+            font-size: 10px;
+        }
+
+        #license-area {
+            bottom: 0;
+            margin: 0 auto;
+            height: auto;
+            font-size: .9em;
+            line-height: 1;
+            z-index: 2
+        }
+    }
+}
+
+#main-content .page-tags {
+    border: 2.5px solid rgb(var(--pale-accent));
+    border-radius: 11px 5px 5px 11px;
+    padding: 5px;
+    display: flex;
+    align-items: stretch;
+}
+
+.page-tags::before {
+    content: "Теги";
+    font-size: 80%;
+    font-weight: bold;
+    background-color: rgb(var(--medium-accent));
+    background-color: rgb(var(--medium-accent));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1px 6px;
+    color: rgb(var(--white-monochrome));
+    margin-right: 0.3em;
+    border-radius: 9px 3px 3px 9px;
+}
+
+ul {
+    padding-inline-start: 1rem;
+    list-style: disc;
+}
+
+.printuser.avatarhover img.small {
+    margin-right: 4px !important;
+    display: flex;
+}
+
+#main-content .page-tags span {
+    border-top: none;
+    max-width: 100%;
+    align-self: center;
+    font-size: 0;
+}
+
+#main-content .page-tags span a {
+    transition: 0.3s, text-decoration-color 0s;
+    padding: 0px 4px;
+    font-size: 0.8rem;
+}
+
+#main-content .page-tags span a:hover {
+    background: rgb(var(--pale-accent));
+    color: rgb(var(--pale-gray-monochrome));
+    text-decoration: none;
+}
+
+#main-content .page-tags span strong {
+    display: none;
+}
+
+#page-info {
+    grid-area: page-info-break;
+}
+
+code {
+    font-family: var(--mono-font);
+}
+
+#page-content .collapsible-block,
+#page-content .collapsible-block-content {
+    margin: 1em 0 1em 0;
+}
+
+.collapsible-block-folded,
+.collapsible-block-unfolded-link {
+    word-break: break-word;
+}
+
+.collapsible-block-content a {
+    word-break: break-all;
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        font-synthesis: none !important;
+    }
+}
+
+.diff-box table:last-child {
+    display: block;
+    overflow: auto;
+}
+
+#top-bar div.top-bar>ul>li>ul>li>a:before, #top-bar div.top-bar>ul>li>ul>li>a:hover:before, #top-bar div.top-bar>ul>li>ul>li>ul>li>a:before {
+    display: none;
+}
+
+#top-bar div.mobile-top-bar>ul>li>ul>li:hover:after, #top-bar div.mobile-top-bar>ul>li>ul>li:hover:before, #top-bar div.top-bar>ul>li>ul>li:hover:after, #top-bar div.top-bar>ul>li>ul>li:hover:before {
+    display: none;
+}
+
+#top-bar li ul {
+    transition: .2s ease-in-out;
+}
+
+#top-bar div.mobile-top-bar>ul>li>ul>li:hover>a, #top-bar div.top-bar>ul>li>ul>li:hover>a {
+    background-color: rgb(var(--bright-accent));
+}
+
+#side-bar div.interwiki-if-code br {
+    display: none;
+}
+
+#side-bar div.scpnet-interwiki-wrapper {
+    transform: none;
+}
+
+@media only screen and (min-width: 769px) {
+    #side-bar div.scpnet-interwiki-wrapper {
+        width: calc(100% - 2.75rem);
+        padding-left: 0.75rem;
+        transition: width 300ms linear;
+    }
+
+    #side-bar:hover div.scpnet-interwiki-wrapper,
+    #side-bar:active div.scpnet-interwiki-wrapper {
+        width: calc(100% - 0.75rem);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #side-bar div.scpnet-interwiki-wrapper {
+        width: 100%;
+    }
+}

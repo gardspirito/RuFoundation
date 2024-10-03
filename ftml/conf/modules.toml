@@ -29,3 +29,6 @@ body = "none"
 
 [NoDefaultTheme]
 body = "none"
+
+[EnableScripts]
+body = "none"

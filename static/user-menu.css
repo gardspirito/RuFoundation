@@ -1,0 +1,102 @@
+span.printuser {
+    color: rgb(var(--white-monochrome));
+    padding: 0px 5px;
+    border-radius: 5px 2px;
+    -webkit-transition: background-color .2s ease;
+    -o-transition: background-color .2s ease;
+    -moz-transition: background-color .2s ease;
+    transition: background-color .2s ease;
+}
+
+span.printuser:hover {
+    text-decoration: none;
+    background-color: rgb(var(--light-gray-monochrome));
+    color: white;
+    cursor: pointer;
+}
+
+#login-status span.printuser {
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    -webkit-transition: none;
+    -o-transition: none;
+    -moz-transition: none;
+    transition: none;
+}
+
+#login-status span.printuser:hover {
+    text-decoration: inherit;
+    background-color: inherit;
+    color: inherit;
+    cursor: inherit;
+}
+
+#login-status span.printuser img.small {
+    padding: 0;
+    margin-right: 0;
+}
+
+#login-status span.printuser a {
+    display: inline-flex;
+    margin: 0 2px;
+}
+
+#login-status a#account-topbutton {
+    color: rgb(var(--swatch-text-light)) !important;
+    background-color: transparent;
+    border: 0;
+    transition: color .2s ease;
+}
+
+#login-status a#account-topbutton:hover {
+    color: rgb(var(--pale-accent)) !important;
+}
+
+#login-status {
+    right: -25px;
+    padding: 3px 8px;
+    font-size: 100%;
+    background-color: rgb(var(--medium-accent));
+    border: 2.5px solid rgb(var(--pale-accent));
+    border-radius: 11px 5px 5px 11px;
+}
+
+#login-status div#account-options a {
+    -webkit-transition: color 0s, -webkit-transform .2s cubic-bezier(0, -0.02, .47, .99);
+    transition: color 0s ease, -webkit-transform .2s cubic-bezier(0, -0.02, .47, .99);
+    -o-transition: background-color .2s ease, color .2s ease, -o-transform .2s cubic-bezier(0, -0.02, .47, .99);
+    -moz-transition: background-color .2s ease, color .2s ease, transform .2s cubic-bezier(0, -0.02, .47, .99), -moz-transform .2s cubic-bezier(0, -0.02, .47, .99);
+    transition: color 0s, transform .2s cubic-bezier(0, -0.02, .47, .99), -webkit-transform .2s cubic-bezier(0, -0.02, .47, .99), -moz-transform .2s cubic-bezier(0, -0.02, .47, .99), -o-transform .2s cubic-bezier(0, -0.02, .47, .99);
+}
+
+#login-status div#account-options a:hover {
+    transform: scale(1.03, 1.03);
+    text-decoration: none;
+    color: rgb(var(--pale-gray-monochrome));
+}
+
+#login-status div#account-options {
+    width: max-content;
+    min-width: 135px;
+    top: 35px;
+    right: -2px;
+    border-radius: 5px;
+    border: 2.5px solid rgb(var(--pale-accent));
+    background-color: rgb(var(--white-monochrome));
+    color: rgb(var(--black-monochrome));
+    -webkit-transition: display .2s cubic-bezier(0, -0.02, .47, .99);
+    -o-transition: display .2s cubic-bezier(0, -0.02, .47, .99);
+    -moz-transition: display .2s cubic-bezier(0, -0.02, .47, .99);
+    transition: display .2s cubic-bezier(0, -0.02, .47, .99);
+}
+
+@media only screen and (max-width: 768px) {
+    #login-status div#account-options {
+        top: 25px;
+    }
+}
+
+#login-status div#account-options li:hover {
+    background-color: rgb(var(--pale-accent));
+}

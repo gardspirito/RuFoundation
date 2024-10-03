@@ -15,6 +15,7 @@ class RenderContext(object):
         self.status = 200
         self.redirect_to = None
         self.default_theme = True
+        self.js_script = False
 
     def clone_with(self, **kwargs):
         article = kwargs.get('article', self.article)
@@ -26,6 +27,7 @@ class RenderContext(object):
         new_rc.redirect_to = self.redirect_to
         new_rc.title = self.title
         new_rc.default_theme = self.default_theme
+        new_rc.js_script = self.js_script
         return new_rc
 
     def merge(self, other_rc: 'RenderContext'):

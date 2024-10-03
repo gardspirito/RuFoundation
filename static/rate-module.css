@@ -1,0 +1,117 @@
+.w-stars-rate-module {
+    --box-shadow: rgba(var(--swatch-menubg-black-color),0.15);
+    margin-bottom: 0.75rem !important;
+    color: rgb(var(--rating-module-text-color)) !important;
+    box-shadow: 0.0625rem 0.0625rem 0 var(--box-shadow);
+    height: fit-content;
+    width: fit-content !important;
+    position: relative;
+    z-index: 5;
+}
+
+.w-stars-rate-module .w-stars-rate-rating {
+    clip-path: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: calc(var(--base-font-size)*.93333*.8);
+    line-height: var(--rating-module-height);
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 0.0625rem solid rgba(var(--swatch-menubg-black-color),.25);
+    border-radius: 0;
+    background: linear-gradient(to top,rgba(var(--swatch-tertiary-color),.25) 0,rgba(var(--swatch-tertiary-color),.15) 100%) !important;
+    background-color: rgb(var(--swatch-background)) !important;
+    padding: 0 0.5rem !important;
+}
+
+.w-stars-rate-module .w-stars-rate-number {
+    font-size: calc(var(--base-font-size)*.93333*1.2);
+    color: currentcolor !important;
+}
+
+.w-stars-rate-module .w-stars-rate-control {
+    box-shadow: none !important;
+    color: rgb(var(--rating-module-text-color))!important;
+    font-size: calc(var(--base-font-size)*.93333*.8);
+    line-height: var(--rating-module-height);
+    height: var(--rating-module-height) !important;
+    border: 0.0625rem solid rgba(var(--swatch-menubg-black-color),.25) !important;
+    border-top: 0 !important;
+    border-radius: 0;
+    background: linear-gradient(to top,rgba(var(--swatch-tertiary-color),.25) 0,rgba(var(--swatch-tertiary-color),.15) 100%) !important;
+    background-color: rgb(var(--swatch-background)) !important;
+    padding: 0 0 0 0.2rem !important;
+}
+
+.w-stars-rate-module .w-stars-rate-control .w-stars-rate-stars-wrapper:before {
+    color: rgba(var(--rating-module-text-color),0.2) !important;
+}
+
+.w-stars-rate-module .w-stars-rate-control .w-stars-rate-stars-wrapper .w-stars-rate-stars-view {
+    --rated-var: rgb(var(--rating-module-text-color))!important;
+}
+
+.w-stars-rate-module .w-stars-rate-control .w-stars-rate-cancel {
+    transition: .1s ease-in-out;
+    width: calc(var(--base-font-size)*.93333*1.5) !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    margin-left: 0.2rem !important;
+}
+
+.w-stars-rate-module .w-stars-rate-control .w-stars-rate-cancel:before {
+    font-size: calc(var(--rating-module-height)*.8);
+    font-weight: 700;
+}
+
+.w-stars-rate-module .w-stars-rate-control .w-stars-rate-cancel:hover {
+    background-color: rgba(var(--rating-module-button-negative-color),.8) !important;
+    color: rgb(var(--rating-module-text-hover-color)) !important;
+}
+
+.w-stars-rate-module .w-stars-rate-votes {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    clip-path: none !important;
+    align-items: center;
+    display: flex;
+    padding: 0 calc(var(--base-font-size)*.93333*.5) !important;
+    color: rgb(var(--rating-module-text-color))!important;
+    line-height: var(--rating-module-height);
+    font-size: calc(var(--base-font-size)*.93333*.8) !important;
+    position: absolute !important;
+    height: var(--rating-module-height);
+    top: 100%;
+    right: 0;
+    border: 0.0625rem solid rgba(var(--swatch-menubg-black-color),.25);
+    border-top: 0;
+    background: linear-gradient(to top,rgba(var(--swatch-tertiary-color),.25) 0,rgba(var(--swatch-tertiary-color),.15) 100%) !important;
+    background-color: rgb(var(--swatch-background)) !important;
+    box-shadow: 0.0625rem 0.0625rem 0 var(--box-shadow);
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transition: 0.3s !important;
+    z-index: 5 !important;
+}
+
+.w-stars-rate-module:hover>.w-stars-rate-votes {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.w-stars-rate-module .w-stars-rate-votes .w-stars-rate-number {
+    font-size: calc(var(--base-font-size)*.93333*.8);
+}
+
+.w-rate-bar {
+    background-color: rgba(var(--swatch-text-dark),0.2) !important;
+    margin-left: 5px;
+}
+
+.w-bar-fill {
+    background-color: rgb(var(--swatch-text-dark)) !important;
+}

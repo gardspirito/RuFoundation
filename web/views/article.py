@@ -88,6 +88,7 @@ class ArticleView(TemplateResponseMixin, ContextMixin, View):
                 title = ''
                 status = 403
                 default_theme = True
+                js_script = False
             else:
                 template_source = '%%content%%'
 
@@ -105,6 +106,7 @@ class ArticleView(TemplateResponseMixin, ContextMixin, View):
                 title = context.title
                 status = context.status
                 default_theme = context.default_theme
+                js_script = context.js_script
 
                 rev_number = articles.get_latest_log_entry(article).rev_number
                 updated_at = article.updated_at
@@ -117,7 +119,8 @@ class ArticleView(TemplateResponseMixin, ContextMixin, View):
             title = ''
             status = 404
             default_theme = True
-        return content, status, redirect_to, excerpt, image, title, rev_number, updated_at, default_theme
+            js_script = False
+        return content, status, redirect_to, excerpt, image, title, rev_number, updated_at, default_theme, js_script
 
     def get_context_data(self, **kwargs):
         path = kwargs["path"]
@@ -165,7 +168,7 @@ class ArticleView(TemplateResponseMixin, ContextMixin, View):
         nav_top = self._render_nav("nav:top", article, path_params)
         nav_side = self._render_nav("nav:side", article, path_params)
 
-        content, status, redirect_to, excerpt, image, title, rev_number, updated_at, default_theme = self.render(article_name, article, path_params)
+        content, status, redirect_to, excerpt, image, title, rev_number, updated_at, default_theme, js_script = self.render(article_name, article, path_params)
 
         context = super(ArticleView, self).get_context_data(**kwargs)
 
@@ -210,6 +213,8 @@ class ArticleView(TemplateResponseMixin, ContextMixin, View):
             'og_url': canonical_url,
 
             'default_theme': default_theme,
+
+            'js_script': js_script,
 
             'nav_top': nav_top,
             'nav_side': nav_side,

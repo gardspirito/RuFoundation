@@ -1,0 +1,11 @@
+/*regular*/
+@import url("fsm-regular.css");
+
+/*bold -- currently commented out as this font looks broken
+@import url("fsm-bold.css");*/
+
+/*italic*/
+@import url("fsm-italic.css");
+
+/*bold italic*/
+@import url("fsm-bold-italic.css");
